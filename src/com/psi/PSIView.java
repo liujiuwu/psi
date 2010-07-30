@@ -188,7 +188,7 @@ public class PSIView extends View {
 		}
 
 		Bitmap bg = BitmapFactory.decodeResource(getResources(), month_imgs[month]);
-		canvas.drawBitmap(bg, (viewWidth - bg.getWidth()) / 2, startY - 3, paints.get(BG_PAINT));
+		canvas.drawBitmap(bg, (viewWidth - bg.getWidth()) / 2, startY+2, paints.get(BG_PAINT));
 		//Bitmap logo = BitmapFactory.decodeResource(getResources(), R.drawable.psi);
 		//canvas.drawBitmap(logo, 0, 0, paints.get(BG_PAINT));
 

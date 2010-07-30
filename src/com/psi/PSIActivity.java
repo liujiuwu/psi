@@ -64,7 +64,7 @@ public class PSIActivity extends Activity {
 			}
 			this.setTitle(this.getTitle() + " - " + name);
 			psiModel = new PSIModel(name, birthday.getTime());
-			psiModel.setScaling(0.75f);
+			psiModel.setScaling(0.6f);
 			psiModel.setCurrentDate(Calendar.getInstance().getTime());
 			psiView.setPsiModel(psiModel);
 			happyBirthday();
@@ -191,12 +191,12 @@ public class PSIActivity extends Activity {
 		String happyBirthdayWarnMessage = getString(R.string.birthday_warn_message, getString(R.string.birthday_warn_days));
 		String happyBirthdayLunarMessage = getString(R.string.birthday_lunar_message);
 
-		//过阳历生日
+		// 过阳历生日
 		if (birthday.getMonth() == currentViewDate.getMonth() && birthday.getDate() == currentViewDate.getDate()) {
 			happyBirthdayToYou(happyBirthdayMessage);
 		}
 
-		//阳历生日提醒
+		// 阳历生日提醒
 		Date nexBirthday = new Date();
 		nexBirthday.setDate(birthday.getDate());
 		nexBirthday.setMonth(birthday.getMonth());
@@ -206,7 +206,7 @@ public class PSIActivity extends Activity {
 			happyBirthdayToYou(happyBirthdayWarnMessage);
 		}
 
-		//过农历生日
+		// 过农历生日
 		if (psiView.isSupportLunar()) {
 			Calendar lunarBirthday = Calendar.getInstance();
 			lunarBirthday.setTime(birthday);
