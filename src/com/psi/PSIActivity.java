@@ -18,6 +18,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +40,10 @@ public class PSIActivity extends Activity {
 	private PSIModel psiModel;
 	private SharedPreferences settings;
 	private SimpleDateFormat storeDateFormat;
+	private float touchStartX = 0;
+	private float touchStartY = 0;
+	private float touchEndX = 0;
+	private float touchEndY = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,47 @@ public class PSIActivity extends Activity {
 			break;
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		float x = event.getX();
+		float y = event.getY();
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			touchStartX = x;
+			touchStartY = y;
+			break;
+		case MotionEvent.ACTION_UP:
+			touchEndX = x;
+			touchEndY = y;
+
+			if (touchStartX != 0 && touchStartY != 0) {
+				float dx = 0;
+				float dy = 0;
+				dx = touchEndX - touchStartX;
+				dy = touchEndY - touchStartY;
+				if (dx > 8) {// 向右
+					changeDay(1);
+				}
+
+				if (dx < 0 && Math.abs(dx) > 8) {// 向左
+					changeDay(-1);
+				}
+
+				if (dy > 8) {// 向下
+					changeMonth(1);
+				}
+
+				if (dy < 0 && Math.abs(dy) > 8) {// 向上
+					changeMonth(-1);
+				}
+			}
+			break;
+		case MotionEvent.ACTION_MOVE:
+			break;
+		}
+		return super.onTouchEvent(event);
 	}
 
 	@Override
