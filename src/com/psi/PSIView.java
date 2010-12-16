@@ -43,7 +43,7 @@ public class PSIView extends View {
 	private int viewWidth;
 	private int curveHeight;
 	private int startX = 33;
-	private int startY = 60;
+	private int startY = 100;
 	private SimpleDateFormat displayDateFormat;
 
 	public PSIView(Context context) {
