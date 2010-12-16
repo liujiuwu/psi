@@ -35,8 +35,8 @@
 	<string name="birthday_message">祝您生日快樂!\n您有什麽願望呢？</string>
 	<string name="birthday_lunar_message">祝您農歷生日快樂!\n許個願吧!</string>
 	<string name="your_birthday">您的生日是%s</string>
-	<string name="your_lunar_birthday">(農歷%s，肖%s)</string>
-	<string name="your_life">至%s您已經在美麗的地球上生活了%s天。</string>
+	<string name="your_lunar_birthday" formatted="false">(農歷%s，肖%s)</string>
+	<string name="your_life" formatted="false">至%s您已經在美麗的地球上生活了%s天。</string>
 	<string name="your_life_0">美妙的人生即將開始，您準備好了嗎？</string>
 	<string name="your_life_1">您的到來總會讓我們驚喜！</string>
 

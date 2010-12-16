@@ -35,11 +35,11 @@
 	<string name="birthday_message">祝您生日快乐!\n您有什么愿望呢？</string>
 	<string name="birthday_lunar_message">祝您农历生日快乐!\n许个愿吧!</string>
 	<string name="your_birthday">您的生日是%s</string>
-	<string name="your_lunar_birthday">(农历%s，肖%s)</string>
-	<string name="your_life">至%s您已经在美丽的地球上生活了%s天。</string>
+	<string name="your_lunar_birthday" formatted="false">(农历%s，肖%s)</string>
+	<string name="your_life" formatted="false">至%s您已经在美丽的地球上生活了%s天。</string>
 	<string name="your_life_0">美妙的人生即将开始，您准备好了吗？</string>
 	<string name="your_life_1">您的到来总会让我们惊喜！</string>
-
+	
 	<string name="menu_setting">设置</string>
 	<string name="menu_help">帮助</string>
 	<string name="menu_about">关于</string>
