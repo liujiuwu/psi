@@ -47,7 +47,7 @@ public class PSIActivity extends Activity {
 	private float touchEndY = 0;
 
 	static {
-		AdManager.init("5766a1e2bff9b313 ", "7e058e2e04fad52a ", 32, false, "2.1");
+		AdManager.init("5766a1e2bff9b313", "7e058e2e04fad52a", 32, false, "2.1");
 	}
 
 	@Override
