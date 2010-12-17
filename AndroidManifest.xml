@@ -9,8 +9,8 @@
 		</activity>
 		<activity android:name=".SettingActivity" android:label="@string/setting_title">
 		</activity>
-		<meta-data android:value="244c61177c344f2f8239045678094c5c" android:name="Wooboo_PID" />
-		<meta-data android:value="1" android:name="Market_ID" />
+		<meta-data android:value="ee6ee51423804f21950f3c01ee303f01" android:name="Telead_PID" />
+		<meta-data android:value="5" android:name="Market_ID" />
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
 	<uses-permission android:name="android.permission.INTERNET" />
