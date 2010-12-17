@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
-import net.youmi.android.AdManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -46,10 +45,6 @@ public class PSIActivity extends Activity {
 	private float touchEndX = 0;
 	private float touchEndY = 0;
 
-	static {
-		AdManager.init("5766a1e2bff9b313", "7e058e2e04fad52a", 32, false, "2.1");
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -74,7 +69,7 @@ public class PSIActivity extends Activity {
 		}
 		this.setTitle(this.getTitle() + " - " + name);
 		psiModel = new PSIModel(name, birthday.getTime());
-		psiModel.setScaling(0.6f);
+		psiModel.setScaling(0.75f);
 		psiModel.setCurrentDate(Calendar.getInstance().getTime());
 		psiView.setPsiModel(psiModel);
 		happyBirthday();
