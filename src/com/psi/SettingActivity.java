@@ -34,8 +34,8 @@ import com.psi.utils.DateUtils;
 public class SettingActivity extends Activity {
 	private static final String VALUE = "value";
 	private static final String KEY = "key";
-	private static final String BIRTHDAY = "birthday";
-	private static final String NAME = "name";
+	public static final String BIRTHDAY = "birthday";
+	public static final String NAME = "name";
 	private SimpleDateFormat storeDateFormat;
 	private SimpleDateFormat displayDateFormat;
 	private SharedPreferences settings;
@@ -49,12 +49,6 @@ public class SettingActivity extends Activity {
 		storeDateFormat = new SimpleDateFormat(getString(R.string.date_store_format));
 		displayDateFormat = new SimpleDateFormat(getString(R.string.date_display_format));
 		settings = getSharedPreferences(Constants.SETTING_INFOS, 0);
-		settings.edit().putString(NAME, "设置你的姓名").commit();
-
-		Calendar birthday = Calendar.getInstance();
-		birthday.set(Calendar.YEAR, birthday.get(Calendar.YEAR) - 1);
-		birthday.set(Calendar.DAY_OF_MONTH, birthday.get(Calendar.DAY_OF_MONTH) - 10);
-		settings.edit().putString(BIRTHDAY, storeDateFormat.format(birthday.getTime())).commit();
 
 		listView = (ListView) findViewById(R.id.listView01);
 		btOk = (Button) findViewById(R.id.ok);
