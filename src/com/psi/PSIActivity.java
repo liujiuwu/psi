@@ -224,12 +224,6 @@ public class PSIActivity extends Activity {
 		return result;
 	}
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		finish();
-	}
-
 	private void happyBirthday() {
 		Date birthday = psiModel.getBirthday();
 		Date currentViewDate = psiModel.getCurrentDate();
