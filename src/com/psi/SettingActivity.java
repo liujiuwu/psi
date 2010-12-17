@@ -10,9 +10,9 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,12 +21,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.psi.utils.Constants;
 import com.psi.utils.DateUtils;
@@ -34,8 +34,8 @@ import com.psi.utils.DateUtils;
 public class SettingActivity extends Activity {
 	private static final String VALUE = "value";
 	private static final String KEY = "key";
-	private static final String BIRTHDAY = "birthday";
-	private static final String NAME = "name";
+	public static final String BIRTHDAY = "birthday";
+	public static final String NAME = "name";
 	private SimpleDateFormat storeDateFormat;
 	private SimpleDateFormat displayDateFormat;
 	private SharedPreferences settings;

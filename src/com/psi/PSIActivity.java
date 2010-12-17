@@ -61,24 +61,23 @@ public class PSIActivity extends Activity {
 	}
 
 	private void initPSI() {
-		String name = settings.getString("name", "").trim();
-		String birthdayStr = settings.getString("birthday", "").trim();
-		if ("".equals(name) || "".equals(birthdayStr)) {
-			gotoSettingActivity();
-		} else {
-			Calendar birthday = Calendar.getInstance();
-			try {
-				birthday.setTime(storeDateFormat.parse(birthdayStr));
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			this.setTitle(this.getTitle() + " - " + name);
-			psiModel = new PSIModel(name, birthday.getTime());
-			psiModel.setScaling(0.6f);
-			psiModel.setCurrentDate(Calendar.getInstance().getTime());
-			psiView.setPsiModel(psiModel);
-			happyBirthday();
+		Calendar defaultBirthday = Calendar.getInstance();
+		defaultBirthday.set(Calendar.YEAR, defaultBirthday.get(Calendar.YEAR) - 1);
+		defaultBirthday.set(Calendar.DAY_OF_MONTH, defaultBirthday.get(Calendar.DAY_OF_MONTH) - 10);
+		String name = settings.getString(SettingActivity.NAME, getString(R.string.default_name)).trim();
+		String birthdayStr = settings.getString(SettingActivity.BIRTHDAY, storeDateFormat.format(defaultBirthday.getTime())).trim();
+		Calendar birthday = Calendar.getInstance();
+		try {
+			birthday.setTime(storeDateFormat.parse(birthdayStr));
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
+		this.setTitle(this.getTitle() + " - " + name);
+		psiModel = new PSIModel(name, birthday.getTime());
+		psiModel.setScaling(0.6f);
+		psiModel.setCurrentDate(Calendar.getInstance().getTime());
+		psiView.setPsiModel(psiModel);
+		happyBirthday();
 	}
 
 	@Override
@@ -227,12 +226,6 @@ public class PSIActivity extends Activity {
 			break;
 		}
 		return result;
-	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-		finish();
 	}
 
 	private void happyBirthday() {
