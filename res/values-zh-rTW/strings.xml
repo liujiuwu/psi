@@ -2,6 +2,7 @@
 <resources>
 	<string name="app_name">人體生物鐘</string>
 	<string name="app_version">1.0</string>
+	<string name="default_name">無名氏</string>
 	<string name="app_about">人體生物鐘版權所有\nEmail:liujiuwu(at)gmail.com\nQQ:923933533</string>
 	<string name="app_help">初次運行需要設置姓名和生日，預設顯示一個月的生物鐘曲線。\n方向鍵和觸控式螢幕操作：\n向上：上一月 向下：下一月\n向左：上一天 向右：下一天</string>
 	<string name="setting_title">人體生物鐘設置</string>

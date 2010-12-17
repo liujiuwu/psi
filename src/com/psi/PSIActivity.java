@@ -59,7 +59,7 @@ public class PSIActivity extends Activity {
 		Calendar defaultBirthday = Calendar.getInstance();
 		defaultBirthday.set(Calendar.YEAR, defaultBirthday.get(Calendar.YEAR) - 1);
 		defaultBirthday.set(Calendar.DAY_OF_MONTH, defaultBirthday.get(Calendar.DAY_OF_MONTH) - 10);
-		String name = settings.getString(SettingActivity.NAME, "无名氏").trim();
+		String name = settings.getString(SettingActivity.NAME, getString(R.string.default_name)).trim();
 		String birthdayStr = settings.getString(SettingActivity.BIRTHDAY, storeDateFormat.format(defaultBirthday.getTime())).trim();
 		Calendar birthday = Calendar.getInstance();
 		try {
