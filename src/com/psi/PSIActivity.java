@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 import net.youmi.android.AdManager;
@@ -54,7 +55,7 @@ public class PSIActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.psi);
 		AdManager.getInstance(this).init("5766a1e2bff9b313", "7e058e2e04fad52a", false);
-		storeDateFormat = new SimpleDateFormat(getString(R.string.date_store_format));
+		storeDateFormat = new SimpleDateFormat(getString(R.string.date_store_format),Locale.CHINESE);
 		settings = getSharedPreferences(Constants.SETTING_INFOS, 0);
 		psiView = (PSIView) findViewById(R.id.psi);
 		initPSI();
