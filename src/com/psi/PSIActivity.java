@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Random;
 
 import net.youmi.android.AdManager;
+import net.youmi.android.banner.AdSize;
+import net.youmi.android.banner.AdView;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -22,6 +24,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,18 +49,22 @@ public class PSIActivity extends Activity {
 	private float touchEndX = 0;
 	private float touchEndY = 0;
 
-	static {
-		AdManager.init("5766a1e2bff9b313", "7e058e2e04fad52a", 32, false, "2.1");
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.psi);
+		AdManager.getInstance(this).init("5766a1e2bff9b313", "7e058e2e04fad52a", false);
 		storeDateFormat = new SimpleDateFormat(getString(R.string.date_store_format));
 		settings = getSharedPreferences(Constants.SETTING_INFOS, 0);
 		psiView = (PSIView) findViewById(R.id.psi);
 		initPSI();
+		
+		//实例化广告条
+	    AdView adView = new AdView(this, AdSize.SIZE_320x50);
+	    //获取要嵌入广告条的布局
+	    LinearLayout adLayout=(LinearLayout)findViewById(R.id.adLayout);
+	    //将广告条加入到布局中
+	    adLayout.addView(adView);
 	}
 
 	private void initPSI() {

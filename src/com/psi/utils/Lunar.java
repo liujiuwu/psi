@@ -198,7 +198,9 @@ public class Lunar {
 
 	public static void main(String[] args) throws ParseException {
 		Calendar today = Calendar.getInstance();
-		today.setTime(chineseDateFormat.parse("1988年1月24日"));
+		today.setTime(chineseDateFormat.parse("1981年11月20日"));
+		//today.setTime(chineseDateFormat.parse("1940年07月17日"));
+		today.set(Calendar.HOUR_OF_DAY, 1);
 		Lunar lunar = new Lunar(today);
 		System.out.println("北京时间：" + chineseDateFormat.format(today.getTime()) + "　农历" + lunar);
 		System.out.println(lunar.cyclical() + lunar.animalsYear());

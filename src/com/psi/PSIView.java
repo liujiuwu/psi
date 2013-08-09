@@ -16,6 +16,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.psi.model.PSIModel;
@@ -97,14 +98,14 @@ public class PSIView extends View {
 		axisPaint.setStrokeWidth(1);
 		paints.put(AXIS_PAINT, axisPaint);
 
-		//X、Y轴网格画笔
+		// X、Y轴网格画笔
 		Paint axisGridPaint = new Paint();
 		axisGridPaint.setColor(Color.WHITE);
 		axisGridPaint.setStrokeWidth(1);
 		axisGridPaint.setAlpha(40);
 		paints.put(AXIS_GRID_PAINT, axisGridPaint);
 
-		//当前日期线画笔
+		// 当前日期线画笔
 		Paint currentDatePaint = new Paint();
 		currentDatePaint.setColor(Color.YELLOW);
 		currentDatePaint.setStrokeWidth(1);
@@ -188,9 +189,10 @@ public class PSIView extends View {
 		}
 
 		Bitmap bg = BitmapFactory.decodeResource(getResources(), month_imgs[month]);
-		canvas.drawBitmap(bg, (viewWidth - bg.getWidth()) / 2, startY+2, paints.get(BG_PAINT));
-		//Bitmap logo = BitmapFactory.decodeResource(getResources(), R.drawable.psi);
-		//canvas.drawBitmap(logo, 0, 0, paints.get(BG_PAINT));
+		canvas.drawBitmap(bg, (viewWidth - bg.getWidth()) / 2, startY + 2, paints.get(BG_PAINT));
+		// Bitmap logo = BitmapFactory.decodeResource(getResources(),
+		// R.drawable.psi);
+		// canvas.drawBitmap(logo, 0, 0, paints.get(BG_PAINT));
 
 		i = XAxisLabelWidth;
 		long days = DateUtils.getDaysBetween(psiModel.getBirthday(), psiModel.getCurrentDate());
@@ -198,6 +200,7 @@ public class PSIView extends View {
 
 		Calendar birthday = Calendar.getInstance();
 		birthday.setTime(psiModel.getBirthday());
+		birthday.set(Calendar.HOUR_OF_DAY, 1);//相差1天的情况,补齐(临时方案)
 		Lunar lunar = new Lunar(birthday);
 		String lunarBirthday = isSupportLunar() ? getResources().getString(R.string.your_lunar_birthday, lunar.toString(), getAnimal(lunar.getYear())) : "";
 
