@@ -54,17 +54,14 @@ public class PSIActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.psi);
-		AdManager.getInstance(this).init("5766a1e2bff9b313", "7e058e2e04fad52a", false);
 		storeDateFormat = new SimpleDateFormat(getString(R.string.date_store_format),Locale.CHINESE);
 		settings = getSharedPreferences(Constants.SETTING_INFOS, 0);
 		psiView = (PSIView) findViewById(R.id.psi);
 		initPSI();
 		
-		//实例化广告条
+		AdManager.getInstance(this).init("03fc6385044dad64", "33d3b2ef22a2b7b6", false);
 	    AdView adView = new AdView(this, AdSize.SIZE_320x50);
-	    //获取要嵌入广告条的布局
 	    LinearLayout adLayout=(LinearLayout)findViewById(R.id.adLayout);
-	    //将广告条加入到布局中
 	    adLayout.addView(adView);
 	}
 
